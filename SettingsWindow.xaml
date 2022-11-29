@@ -8,8 +8,8 @@
         ResizeMode="NoResize"
         Closed="Window_Closed"
         WindowStartupLocation="CenterScreen"
-        Title="Настройки" Height="230" Width="500">
-    <Grid>
+        Title="Настройки" Height="230" Width="500" Icon="Resources/tic logo.ico" >
+    <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -32,6 +32,15 @@
             <CheckBox x:Name="UseRandomGeneration" Grid.Column="1"/>
         </Viewbox>
 
+        <Label Name="AI" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+               HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Margin="10 0 0 0"
+        >
+            Использовать Виртуального партнёра:
+        </Label>
+
+        <Viewbox Height="25" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5 5 155 5">
+            <CheckBox x:Name="UseAI" Grid.Column="1"/>
+        </Viewbox>
 
         <Button Content="я нерабочая кнопка"
                 Margin="5" FontSize="19" Grid.Row="3"

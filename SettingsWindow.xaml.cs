@@ -13,11 +13,15 @@ namespace TicTacToe
             InitializeComponent();
 
             UseRandomGeneration.IsChecked = ProgramSettings.RandomStartChoiceIsEnabled;
+            UseAI.IsChecked = ProgramSettings.AI.IsEnabled;
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             ProgramSettings.RandomStartChoiceIsEnabled = (bool)UseRandomGeneration.IsChecked;
+            ProgramSettings.AI.IsEnabled = (bool)UseAI.IsChecked;
+
+            ProgramSettings.AI.UsingSymbol = ProgramSettings.AI.IsEnabled ? "╳" : "";
         }
     }
 }

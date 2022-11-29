@@ -32,3 +32,21 @@ D:\Repository\GitHub Repository\My Source\TicTacToe\obj\Debug\TicTacToe.exe
 D:\Repository\GitHub Repository\My Source\TicTacToe\obj\Debug\TicTacToe.pdb
 D:\Repository\GitHub Repository\My Source\TicTacToe\obj\Debug\SettingsWindow.g.cs
 D:\Repository\GitHub Repository\My Source\TicTacToe\obj\Debug\SettingsWindow.baml
+D:\Repository\GitHub Repository\TicTacToe\bin\Debug\TicTacToe.exe.config
+D:\Repository\GitHub Repository\TicTacToe\bin\Debug\TicTacToe.exe
+D:\Repository\GitHub Repository\TicTacToe\bin\Debug\TicTacToe.pdb
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.csproj.AssemblyReference.cache
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\MainWindow.g.cs
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\SettingsWindow.g.cs
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\App.g.cs
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe_MarkupCompile.cache
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe_MarkupCompile.lref
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\App.baml
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\MainWindow.baml
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\SettingsWindow.baml
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.g.resources
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.Properties.Resources.resources
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.csproj.GenerateResource.cache
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.exe
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.pdb

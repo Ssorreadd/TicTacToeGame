@@ -10,7 +10,8 @@
             AI = new AI()
             {
                 IsEnabled = false,
-                Difficult = 0
+                Difficult = 0,
+                UsingSymbol = ""
             };
 
             RandomStartChoiceIsEnabled = false;

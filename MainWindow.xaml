@@ -8,7 +8,7 @@
         Title="Крестики-нолики"
         Height="535" Width="900"
         MinHeight="535" MinWidth="900"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Icon="Resources/tic logo.ico">
     <Grid Name="MainGrid" Background="AliceBlue" PreviewMouseLeftButtonDown="CloseEndScreen_PreviewMouseLeftButtonDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120*"/>
@@ -27,15 +27,15 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="1" Background="GhostWhite" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderBrush="black" BorderThickness="1"/>
+        <!--<Border Grid.Row="1" Background="GhostWhite" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="3" BorderBrush="black" BorderThickness="1"/>-->
 
-        <Border Grid.Row="1" Grid.Column="3" BorderBrush="black" BorderThickness="0.5 0.5 0 0.5"/>
-        <Border Grid.Row="1" Grid.Column="5" BorderBrush="black" BorderThickness="0 0.5 0.5 0.5"/>
-        <Border Grid.Row="3" Grid.Column="5" BorderBrush="black" BorderThickness="0 0.5 0.5 0.5"/>
-        <Border Grid.Row="3" Grid.Column="3" BorderBrush="black" BorderThickness="0.5 0.5 0 0.5"/>
+        <Border Grid.Row="1" Grid.Column="3" BorderBrush="black" BorderThickness="0 0 0 0.5"/>
+        <Border Grid.Row="1" Grid.Column="5" BorderBrush="black" BorderThickness="0 0 0 0.5"/>
+        <Border Grid.Row="3" Grid.Column="5" BorderBrush="black" BorderThickness="0 0.5 0 0"/>
+        <Border Grid.Row="3" Grid.Column="3" BorderBrush="black" BorderThickness="0 0.5 0 0"/>
         <Border Grid.Row="2" Grid.Column="4" BorderBrush="black" BorderThickness="0.5 0 0.5 0"/>
-        <Border Grid.Row="3" Grid.Column="4" BorderBrush="black" BorderThickness="0.5 0.5 0.5 0.5"/>
-        <Border Grid.Row="1" Grid.Column="4" BorderBrush="black" BorderThickness="0.5 0.5 0.5 0.5"/>
+        <Border Grid.Row="3" Grid.Column="4" BorderBrush="black" BorderThickness="0.5 0.5 0.5 0"/>
+        <Border Grid.Row="1" Grid.Column="4" BorderBrush="black" BorderThickness="0.5 0 0.5 0.5"/>
 
         <Label Name="Cell00" Grid.Row="1" Grid.Column="3" PreviewMouseLeftButtonDown="Cells_PreviewMouseLeftButtonDown"/>
         <Label Name="Cell01" Grid.Row="1" Grid.Column="4" PreviewMouseLeftButtonDown="Cells_PreviewMouseLeftButtonDown"/>
@@ -51,7 +51,7 @@
 
         <TextBlock Name="StepNow" Grid.Row="0" Grid.Column="3"
                FontSize="19" Grid.ColumnSpan="3"
-               VerticalAlignment="Bottom" TextAlignment="Center" Margin="5"
+               VerticalAlignment="Bottom" TextAlignment="Center" Margin="0 0 0 15"
         />
         
         <TextBlock Name="Log" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"

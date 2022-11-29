@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace TicTacToe
 {
@@ -25,7 +26,7 @@ namespace TicTacToe
 
         private string SymbolNow { get; set; }
         private Border EndScreen { get; set; }
-        private string[,] GameBoard { get; set; }
+        private string[,] GameBoard = null;
 
         public MainWindow()
         {
@@ -36,6 +37,12 @@ namespace TicTacToe
             UpdateLog();
 
             NewGame();
+        }
+
+        private void AIEnable()
+        {
+            ProgramSettings.AI.IsEnabled = true;
+            AiEmulator();
         }
 
         private void UpdateLog(string winner = null)
@@ -208,19 +215,16 @@ namespace TicTacToe
             {
                 UpdateLog(Cross);
                 CreateEndScreen(Cross);
-                NewGame();
             }
             else if (HorizontalOrVerticalCheckOut(Zero, "horiz") || HorizontalOrVerticalCheckOut(Zero, "vert") || DiagonalCheckOut(Zero))
             {
                 UpdateLog(Zero);
                 CreateEndScreen(Zero);
-                NewGame();
             }
             else if (ItDraw())
             {
                 UpdateLog("draw");
                 CreateEndScreen("draw");
-                NewGame();
             }
         }
 
@@ -273,14 +277,16 @@ namespace TicTacToe
             {
                 MainGrid.Children.Remove(EndScreen);
                 EndScreen = null;
+
+                NewGame();
             }
         }
 
-        private bool IsHaveValue(object sender) => string.IsNullOrEmpty(((Label)sender).Content.ToString());
+        private bool IsHaveValue(object sender) => !string.IsNullOrEmpty(((Label)sender).Content.ToString());
 
         private void Cells_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsHaveValue(sender))
+            if (!IsHaveValue(sender) && !SymbolNow.Equals(ProgramSettings.AI.UsingSymbol))
             {
                 string senderName = ((Label)sender).Name;
 
@@ -315,6 +321,40 @@ namespace TicTacToe
         {
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.ShowDialog();
+
+            if (ProgramSettings.AI.IsEnabled)
+            {
+                AiEmulator();
+            }
+
+            NewGame();
+        }
+
+        private async void AiEmulator()
+        {
+            await Task.Run(() =>
+            {
+                while (ProgramSettings.AI.IsEnabled != false)
+                {
+                    Thread.Sleep(500);
+
+                    if (EndScreen == null && ProgramSettings.AI.UsingSymbol.Equals(SymbolNow))
+                    {
+                        Thread.Sleep(500);
+
+                        Dispatcher.Invoke(() =>
+                        {
+                            ProgramSettings.AI.DoStep(ref GameBoard, ref MainGrid);
+
+                            SymbolNow = SymbolNow == Cross ? Zero : Cross;
+
+                            UpdateStepNowLabel();
+
+                            Bingo();
+                        });
+                    } 
+                }
+            });
         }
     }
 }

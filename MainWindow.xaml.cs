@@ -24,6 +24,8 @@ namespace TicTacToe
         private const string Cross = "╳";
         private const string Zero = "◯";
 
+        private bool _emulatorIsWork = false;
+
         private string SymbolNow { get; set; }
         private Border EndScreen { get; set; }
         private string[,] GameBoard = null;
@@ -322,7 +324,7 @@ namespace TicTacToe
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.ShowDialog();
 
-            if (ProgramSettings.AI.IsEnabled)
+            if (ProgramSettings.AI.IsEnabled && !_emulatorIsWork)
             {
                 AiEmulator();
             }
@@ -334,6 +336,8 @@ namespace TicTacToe
         {
             await Task.Run(() =>
             {
+                _emulatorIsWork = true;
+
                 while (ProgramSettings.AI.IsEnabled != false)
                 {
                     Thread.Sleep(500);
@@ -352,8 +356,10 @@ namespace TicTacToe
 
                             Bingo();
                         });
-                    } 
+                    }
                 }
+
+                _emulatorIsWork = false;
             });
         }
     }

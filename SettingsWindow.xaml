@@ -8,42 +8,60 @@
         ResizeMode="NoResize"
         Closed="Window_Closed"
         WindowStartupLocation="CenterScreen"
-        Title="Настройки" Height="230" Width="500" Icon="Resources/tic logo.ico" >
+        Title="Настройки" Height="530" Width="500" Icon="Resources/tic logo.ico" >
     <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Name="Log" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-               HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Margin="10 0 0 0"
-        >
-            Использовать рандомную генерацию "кто ходит первым":
-        </Label>
+        <Border BorderBrush="DimGray" BorderThickness="0 0.2 0 0.2" Grid.Row="1" Grid.ColumnSpan="2" Margin="10 0 10 0"/>
 
-        <Viewbox Height="25" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5 5 10 5">
+        <TextBlock Name="Log" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+               HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" FontSize="18"  Margin="0 0 0 0"
+        >
+            Использовать случайную генерацию<LineBreak/>"кто ходит первым"
+        </TextBlock>
+
+        <Viewbox Height="25" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0">
             <CheckBox x:Name="UseRandomGeneration" Grid.Column="1"/>
         </Viewbox>
 
-        <Label Name="AI" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-               HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Margin="10 0 0 0"
-        >
-            Использовать Виртуального партнёра:
-        </Label>
+        <TextBlock Name="AI" Grid.Row="1" Grid.Column="1" Text="Использовать Виртуального партнёра(beta)"
+               HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="0 0 0 0"
+        />
 
-        <Viewbox Height="25" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5 5 155 5">
+        <Viewbox Height="25" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <CheckBox x:Name="UseAI" Grid.Column="1"/>
         </Viewbox>
 
-        <Button Content="я нерабочая кнопка"
-                Margin="5" FontSize="19" Grid.Row="3"
+        <TextBlock  Grid.Row="2" Grid.Column="1" TextAlignment="Left"
+               HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="0 0 0 0"
+        >
+            Использовать сохранение данных о сеансе<LineBreak/>виде XML
+        </TextBlock>
+
+        <Viewbox Height="25" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <CheckBox x:Name="UseSessionData" Grid.Column="1"/>
+        </Viewbox>
+
+        <Button x:Name="SessionsWindow" Content="?" Background="GhostWhite"
+                FontSize="18" Grid.Row="2" Margin="380 10 20 10" Grid.Column="1"
+                Click="SessionsWindow_Click"
+        />
+
+        <Button Content="Сохранить и выйти" Background="GhostWhite"
+                Margin="5" FontSize="19" Grid.Row="7" Grid.ColumnSpan="2" Click="Button_Click"
         />
     </Grid>
 </Window>

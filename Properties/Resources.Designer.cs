@@ -69,5 +69,15 @@ namespace TicTacToe.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tic_logo_trnsp {
+            get {
+                object obj = ResourceManager.GetObject("tic_logo_trnsp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

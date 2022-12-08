@@ -8,6 +8,7 @@
         Title="Крестики-нолики"
         Height="535" Width="900"
         MinHeight="535" MinWidth="900"
+        Closing="Window_Closing"
         WindowStartupLocation="CenterScreen" Icon="Resources/tic logo.ico">
     <Grid Name="MainGrid" Background="AliceBlue" PreviewMouseLeftButtonDown="CloseEndScreen_PreviewMouseLeftButtonDown">
         <Grid.ColumnDefinitions>
@@ -50,20 +51,17 @@
         <Label Name="Cell22" Grid.Row="3" Grid.Column="5" PreviewMouseLeftButtonDown="Cells_PreviewMouseLeftButtonDown"/>
 
         <TextBlock Name="StepNow" Grid.Row="0" Grid.Column="3"
-               FontSize="19" Grid.ColumnSpan="3"
+               FontSize="19" Grid.ColumnSpan="3" Text="stepnow"
                VerticalAlignment="Bottom" TextAlignment="Center" Margin="0 0 0 15"
         />
-        
-        <TextBlock Name="Log" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
-                   TextAlignment="Left" Text="log" FontSize="19"
-        />
+
+        <Border Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Background="GhostWhite" CornerRadius="10" BorderThickness="1" BorderBrush="DimGray">
+            <TextBlock Name="Log" VerticalAlignment="Center" Margin="15 0 0 0" TextAlignment="Left" Text="log" FontSize="19"/>
+        </Border>
 
         <Button Name="Settings" Content="Настройки"
-                Margin="0 15 0 15" FontSize="19" Grid.Row="3" Grid.Column="1"
+                Margin="0 50 0 0" FontSize="19" Grid.Row="3" Grid.Column="1"
                 Click="Settings_Click" Background="GhostWhite"
         />
-
-
-
     </Grid>
 </Window>

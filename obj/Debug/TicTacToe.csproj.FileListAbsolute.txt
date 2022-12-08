@@ -50,3 +50,7 @@ D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.csproj.GenerateRes
 D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
 D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.exe
 D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.pdb
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\SessionsWindow.g.cs
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\SessionsWindow.baml
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\StartWindow.g.cs
+D:\Repository\GitHub Repository\TicTacToe\obj\Debug\StartWindow.baml

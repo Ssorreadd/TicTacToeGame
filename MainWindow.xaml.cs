@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using System.Threading;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace TicTacToe
 {
@@ -27,25 +19,33 @@ namespace TicTacToe
         private bool _emulatorIsWork = false;
 
         private string SymbolNow { get; set; }
+
         private Border EndScreen { get; set; }
+
         private string[,] GameBoard = null;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            ProgramSettings.SetDefaultSettings();
+            Visibility = Visibility.Hidden;
+
+            StartWindow startWindow = new StartWindow();
+            startWindow.ShowDialog();
+
+
+            Visibility = Visibility.Visible;
+
+            //Opacity = 1;
+
+            ProgramSettings.Load();
 
             UpdateLog();
 
             NewGame();
         }
 
-        private void AIEnable()
-        {
-            ProgramSettings.AI.IsEnabled = true;
-            AiEmulator();
-        }
+
 
         private void UpdateLog(string winner = null)
         {
@@ -54,23 +54,23 @@ namespace TicTacToe
                 switch (winner)
                 {
                     case Cross:
-                        LogTable.CrossWins++;
+                        SessionManager.session.CrossWins++;
                         break;
                     case Zero:
-                        LogTable.ZeroWins++;
+                        SessionManager.session.ZeroWins++;
                         break;
                     case "draw":
-                        LogTable.DrawCount++;
+                        SessionManager.session.DrawCount++;
                         break;
                 }
 
-                LogTable.GamesPlayed++;
+                SessionManager.session.GamesPlayed++;
             }
 
-            Log.Text = $"Ничья: {LogTable.DrawCount}\n" + 
-                $"Побед \"{Cross}\": {LogTable.CrossWins}\n" +
-                $"Побед \"{Zero}\": {LogTable.ZeroWins}\n" +
-                $"Партий сыграно: {LogTable.GamesPlayed}";
+            Log.Text = $"Ничья: {SessionManager.session.DrawCount}\n\n" + 
+                $"Побед \"{Cross}\": {SessionManager.session.CrossWins}\n\n" +
+                $"Побед \"{Zero}\": {SessionManager.session.ZeroWins}\n\n" +
+                $"Партий сыграно: {SessionManager.session.GamesPlayed}";
         }
 
         private void NewGame()
@@ -85,6 +85,11 @@ namespace TicTacToe
                 case false:
                     SymbolNow = Cross;
                     break;
+            }
+
+            if (ProgramSettings.AI.IsEnabled && !_emulatorIsWork)
+            {
+                AiEmulator();
             }
 
             foreach (var cell in MainGrid.Children)
@@ -324,11 +329,6 @@ namespace TicTacToe
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.ShowDialog();
 
-            if (ProgramSettings.AI.IsEnabled && !_emulatorIsWork)
-            {
-                AiEmulator();
-            }
-
             NewGame();
         }
 
@@ -338,7 +338,7 @@ namespace TicTacToe
             {
                 _emulatorIsWork = true;
 
-                while (ProgramSettings.AI.IsEnabled != false)
+                while (ProgramSettings.AI.IsEnabled)
                 {
                     Thread.Sleep(500);
 
@@ -361,6 +361,16 @@ namespace TicTacToe
 
                 _emulatorIsWork = false;
             });
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ProgramSettings.Save();
+
+            if (ProgramSettings.UseSessionManager)
+            {
+                SessionManager.Add();
+            }
         }
     }
 }

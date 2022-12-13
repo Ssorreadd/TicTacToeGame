@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-namespace TicTacToe
+﻿namespace TicTacToe
 {
     public class SessionType
     {

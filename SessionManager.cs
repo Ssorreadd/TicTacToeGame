@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml.Linq;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace TicTacToe
 {
@@ -33,6 +34,41 @@ namespace TicTacToe
             XElement root = new XElement(_root);
 
             XD.Add(root);
+            
+            XD.Save(sessionsFilePath);
+        }
+
+        internal static void LoadOldSession(SessionType oldSession)
+        {
+            session = new SessionType
+            {
+                Date = DateTime.Now.ToString(),
+                CrossWins = oldSession.CrossWins,
+                ZeroWins = oldSession.ZeroWins,
+                DrawCount = oldSession.DrawCount,
+                GamesPlayed = oldSession.GamesPlayed
+            };
+        }
+
+        internal static void Delete(SessionType session)
+        {
+            var sessionsList = ToList();
+
+            sessionsList.Remove(sessionsList.Single(d => d.Date.Equals(session.Date)));
+
+            CreateXml();
+
+            XDocument XD = XDocument.Load(sessionsFilePath);
+
+            foreach (var s in sessionsList)
+            {
+                XD.Root.Add(new XElement("session",
+                    new XAttribute("date", $"{s.Date}"),
+                    new XElement("draw", s.DrawCount),
+                    new XElement("crossWins", s.CrossWins),
+                    new XElement("zeroWins", s.ZeroWins),
+                    new XElement("gamesPlayed", s.GamesPlayed)));
+            }
 
             XD.Save(sessionsFilePath);
         }

@@ -61,6 +61,33 @@ namespace TicTacToe.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Button_Click_Sound_1 {
+            get {
+                return ResourceManager.GetStream("Button_Click_Sound_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Cross_Step_1 {
+            get {
+                return ResourceManager.GetStream("Cross_Step_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Game_End_1 {
+            get {
+                return ResourceManager.GetStream("Game_End_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
         internal static System.Drawing.Icon tic_logo {
@@ -77,6 +104,15 @@ namespace TicTacToe.Properties {
             get {
                 object obj = ResourceManager.GetObject("tic_logo_trnsp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Zero_Step_1 {
+            get {
+                return ResourceManager.GetStream("Zero_Step_1", resourceCulture);
             }
         }
     }

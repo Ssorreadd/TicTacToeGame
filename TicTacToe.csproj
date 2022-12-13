@@ -61,6 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SessionManager.cs" />
     <Compile Include="SessionsWindow.xaml.cs">
       <DependentUpon>SessionsWindow.xaml</DependentUpon>
@@ -69,6 +74,7 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SoundManager.cs" />
     <Compile Include="StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
@@ -103,11 +109,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -130,6 +131,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\tic_logo_trnsp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MySound\Cross_Step_1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MySound\Game_End_1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MySound\Zero_Step_1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MySound\Button_Click_Sound_1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Save_Image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

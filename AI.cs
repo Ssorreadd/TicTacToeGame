@@ -10,6 +10,8 @@ namespace TicTacToe
         internal byte Difficult { get; set; }
         internal string UsingSymbol { get; set; }
 
+        private string PrevStep { get; set; }
+
         internal AI SetDefaultSettings()
         {
             return new AI()
@@ -19,6 +21,24 @@ namespace TicTacToe
             };
         }
 
+        private string RandomStep(ref string[,] gameBoard)
+        {
+            List<string> nullCells = new List<string>();
+
+            for (int i = 0; i < gameBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < gameBoard.GetLength(1); j++)
+                {
+                    if (gameBoard[i, j] == null)
+                    {
+                        nullCells.Add($"Cell{i}{j}");
+                    }
+                }
+            }
+
+            return nullCells[new Random().Next(0, nullCells.Count)];
+        }
+
         internal void DoStep(ref string[,] gameBoard, ref Grid grid)
         {
             if (!IsEnabled)
@@ -26,23 +46,30 @@ namespace TicTacToe
                 return;
             }
 
-            List<string> nullCells = new List<string>();
+            string step = null;
 
-            for (int i = 0; i < gameBoard.GetLength(0); i++)
+            if (PrevStep == null)
             {
-                for (int j = 0; j < gameBoard.GetLength(1); j++)
-                {
-                    if (gameBoard[i,j] == null)
-                    {
-                        nullCells.Add($"Cell{i}{j}");
-                    }
-                }
+                //step = RandomStep(ref gameBoard);
+            }
+            else
+            {
+                //int i = PrevStep[PrevStep.Length - 2];
+                //int j = PrevStep[PrevStep.Length - 1];
+
+                //if (gameBoard[])
+                //{
+
+                //}
             }
 
-            string step = nullCells[new Random().Next(0, nullCells.Count)];
+
+
+            step = RandomStep(ref gameBoard);
 
             gameBoard[int.Parse(step[step.Length - 2].ToString()), int.Parse(step[step.Length - 1].ToString())] = UsingSymbol;
 
+            PrevStep = step;
 
             foreach (var cell in grid.Children)
             {

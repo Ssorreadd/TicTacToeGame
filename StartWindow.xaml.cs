@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace TicTacToe
 {
@@ -13,12 +9,9 @@ namespace TicTacToe
     /// </summary>
     public partial class StartWindow : Window
     {
-        private bool _goClose = false;
         public StartWindow()
         {
             InitializeComponent();
-            
-
         }
 
         private async void Start()

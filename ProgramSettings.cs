@@ -6,6 +6,7 @@ namespace TicTacToe
 {
     internal static class ProgramSettings
     {
+        internal static bool UseSoundManager { get; set; }
         internal static bool UseSessionManager { get; set; }
         internal static AI AI { get; set; }
         internal static bool RandomStartChoiceIsEnabled { get; set; }
@@ -59,6 +60,10 @@ namespace TicTacToe
                 new XAttribute("name", $"SessionManager"),
                 new XElement("isEnabled", save == false ? false : UseSessionManager)));
 
+            root.Add(new XElement("setting",
+                new XAttribute("name", $"SoundManager"),
+                new XElement("isEnabled", save == false ? true : UseSoundManager)));
+
             XD.Add(root);
 
             XD.Save(settingsFilePath);
@@ -93,6 +98,9 @@ namespace TicTacToe
                         break;
                     case "SessionManager":
                         UseSessionManager = bool.Parse(item.Element("isEnabled").Value);
+                        break;
+                    case "SoundManager":
+                        UseSoundManager = bool.Parse(item.Element("isEnabled").Value);
                         break;
                 }
             }

@@ -14,7 +14,7 @@
 
         <Image Source="Resources/tic_logo_trnsp.png" HorizontalAlignment="Left"  Grid.Column="1" Margin="-10 30 30 30"/>
         <TextBlock Text="Tic Tac Toe" VerticalAlignment="Center" FontSize="80" />
-        <TextBlock Text="alpha v.0.8" VerticalAlignment="Bottom" FontSize="12" HorizontalAlignment="Left" Margin="10" Foreground="DimGray"/>
+        <TextBlock Text="alpha v.0.9" VerticalAlignment="Bottom" FontSize="12" HorizontalAlignment="Left" Margin="10" Foreground="DimGray"/>
 
     </Grid>
 </Window>

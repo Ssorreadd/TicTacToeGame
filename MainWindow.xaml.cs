@@ -33,10 +33,7 @@ namespace TicTacToe
             StartWindow startWindow = new StartWindow();
             startWindow.ShowDialog();
 
-
             Visibility = Visibility.Visible;
-
-            //Opacity = 1;
 
             ProgramSettings.Load();
 
@@ -44,8 +41,6 @@ namespace TicTacToe
 
             NewGame();
         }
-
-
 
         private void UpdateLog(string winner = null)
         {
@@ -75,6 +70,8 @@ namespace TicTacToe
 
         private void NewGame()
         {
+            UpdateLog();
+
             GameBoard = new string[3, 3];
 
             switch (ProgramSettings.RandomStartChoiceIsEnabled)
@@ -275,6 +272,8 @@ namespace TicTacToe
             Grid.SetRowSpan(EndScreen, 3);
             Grid.SetColumnSpan(EndScreen, 7);
 
+            SoundManager.Play("end");
+
             MainGrid.Children.Add(EndScreen);
         }
 
@@ -299,6 +298,8 @@ namespace TicTacToe
 
                 ((Label)sender).Content = SymbolNow;
                 GameBoard[int.Parse(senderName[senderName.Length - 2].ToString()), int.Parse(senderName[senderName.Length - 1].ToString())] = SymbolNow;
+
+                SoundManager.Play(SymbolNow);
 
                 SymbolNow = SymbolNow == Cross ? Zero : Cross;
 
@@ -326,8 +327,14 @@ namespace TicTacToe
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
+            SoundManager.Play("button");
+
+            //Hide();
+
             SettingsWindow settingsWindow = new SettingsWindow();
             settingsWindow.ShowDialog();
+            
+            //Show();
 
             NewGame();
         }
@@ -349,6 +356,8 @@ namespace TicTacToe
                         Dispatcher.Invoke(() =>
                         {
                             ProgramSettings.AI.DoStep(ref GameBoard, ref MainGrid);
+
+                            SoundManager.Play(SymbolNow);
 
                             SymbolNow = SymbolNow == Cross ? Zero : Cross;
 

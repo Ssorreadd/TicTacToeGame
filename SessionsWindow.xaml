@@ -3,9 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="https://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:local="clr-namespace:TicTacToe"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" Closing="Window_Closing"
         Title="Менеджер сессий" Height="400" Width="800">
     <Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
@@ -21,14 +19,76 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         
-        <DataGrid x:Name="DGridSessions" Background="AliceBlue" Grid.RowSpan="5" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Дата" Width="*" Binding="{Binding Date}"/>
-                <DataGridTextColumn Header="Ничья" Width="*" Binding="{Binding DrawCount}"/>
-                <DataGridTextColumn Header="Побед ╳" Width="*" Binding="{Binding CrossWins}"/>
-                <DataGridTextColumn Header="Побед ◯" Width="*" Binding="{Binding ZeroWins}"/>
-                <DataGridTextColumn Header="Всего партий сыграно" Width="*" Binding="{Binding GamesPlayed}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListView Background="AliceBlue" x:Name="SessionsListView" Grid.RowSpan="5" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="0.8" BorderBrush="DimGray" Background="GhostWhite" CornerRadius="5" Margin="10">
+                        <StackPanel Orientation="Horizontal" Width="200" Margin="15" HorizontalAlignment="Center">
+                            <Image Width="60" Source="Resources/Save_Image.png" Stretch="Uniform" Margin="5"/>
+
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Date, StringFormat=d}" FontWeight="Bold" Margin="2" Grid.Row="1" Grid.ColumnSpan="3"/>
+
+                                <StackPanel Orientation="Horizontal" >
+                                    <TextBlock Text="{Binding CrossWins, StringFormat=╳   {0} }" FontSize="14" Margin="10" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{Binding DrawCount}" Margin="10" FontSize="14"  HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding ZeroWins, StringFormat={} {0}   ◯}" FontSize="14"  Margin="10" HorizontalAlignment="Right"/>
+                                </StackPanel>
+
+                                <TextBlock Text="{Binding GamesPlayed, StringFormat={}Партий сыграно: {0}}" Margin="2 2 2 6" TextAlignment="Center"/>
+
+                                <Border BorderThickness="0 0.2 0 0" BorderBrush="DimGray">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Загрузить" Name="LoadBtn" Click="LoadBtn_Click" FontSize="14" Margin="5" FontWeight="DemiBold" BorderThickness="0" Background="{x:Null}" HorizontalAlignment="Left" BorderBrush="{x:Null}"/>
+                                        <Button Content="Удалить" Name="DeleteBtn" Click="DeleteBtn_Click" FontSize="14" Margin="5" FontWeight="Light"  BorderThickness="0" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right"/>
+                                    </StackPanel>
+                                </Border>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <!--<ListView.ItemContainerStyle>
+                
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="Red"></Setter>
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseDirectlyOver" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            
+                        </Trigger>
+
+                        <Trigger Property="FocusVisualStyle">
+                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="BorderBrush" Value="Green"/>
+                        </Trigger>
+                    </Style.Triggers>
+                    
+                </Style>
+                
+            </ListView.ItemContainerStyle>-->
+            
+           
+        </ListView>
+
     </Grid>
 </Window>

@@ -10,10 +10,17 @@ none
 false
 DEBUG;TRACE
 D:\Repository\GitHub Repository\TicTacToe\App.xaml
+<<<<<<< HEAD
 4-1428959755
 
 131841080813
 14209946504
+=======
+4477048655
+
+13387122986
+14913038415
+>>>>>>> 1f22c8cf7b34d47147c2aefe5352579b05c74f33
 MainWindow.xaml;SessionsWindow.xaml;SettingsWindow.xaml;StartWindow.xaml;
 
 False

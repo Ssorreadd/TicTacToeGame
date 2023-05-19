@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" Closing="Window_Closing"
         Title="Менеджер сессий" Height="400" Width="800">
+<<<<<<< HEAD
     <Grid Background="AliceBlue" Name="SessionGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -16,6 +17,23 @@
         </StackPanel>
         
         <ListView Background="AliceBlue" Grid.Row="1" x:Name="SessionsListView" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+=======
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <ListView Background="AliceBlue" x:Name="SessionsListView" Grid.RowSpan="5" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+>>>>>>> 1f22c8cf7b34d47147c2aefe5352579b05c74f33
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>

@@ -10,8 +10,13 @@ namespace TicTacToe
     {
         internal static SessionType session = new SessionType() { Date = DateTime.Now.ToString() };
 
+<<<<<<< HEAD
         internal static readonly string sessionsFolderPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Tic Tac Toe";
         internal static readonly string sessionsFilePath = $@"{sessionsFolderPath}\Sessions.xml";
+=======
+        internal static string sessionsFolderPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\Tic Tac Toe";
+        internal static string sessionsFilePath = $@"{sessionsFolderPath}\Sessions.xml";
+>>>>>>> 1f22c8cf7b34d47147c2aefe5352579b05c74f33
 
         private static readonly string _root = "sessions";
 
@@ -91,8 +96,11 @@ namespace TicTacToe
 
         internal static ObservableCollection<SessionType> ToList()
         {
+<<<<<<< HEAD
             Initialization();
 
+=======
+>>>>>>> 1f22c8cf7b34d47147c2aefe5352579b05c74f33
             ObservableCollection<SessionType> sessions = new ObservableCollection<SessionType>();
 
             XDocument XD = XDocument.Load(sessionsFilePath);

@@ -54,4 +54,7 @@ D:\Repository\GitHub Repository\TicTacToe\obj\Debug\SessionsWindow.g.cs
 D:\Repository\GitHub Repository\TicTacToe\obj\Debug\SessionsWindow.baml
 D:\Repository\GitHub Repository\TicTacToe\obj\Debug\StartWindow.g.cs
 D:\Repository\GitHub Repository\TicTacToe\obj\Debug\StartWindow.baml
+<<<<<<< HEAD
 D:\Repository\GitHub Repository\TicTacToe\obj\Debug\TicTacToe.csproj.SuggestedBindingRedirects.cache
+=======
+>>>>>>> 1f22c8cf7b34d47147c2aefe5352579b05c74f33

@@ -20,6 +20,7 @@ namespace TicTacToe
 
         private void UpdateSource()
         {
+<<<<<<< HEAD
             var source = SessionManager.ToList();
 
             if (source.Count != 0)
@@ -30,6 +31,9 @@ namespace TicTacToe
             {
 
             }
+=======
+            SessionsListView.ItemsSource = SessionManager.ToList();
+>>>>>>> 1f22c8cf7b34d47147c2aefe5352579b05c74f33
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)

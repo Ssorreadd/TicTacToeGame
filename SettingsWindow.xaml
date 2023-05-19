@@ -1,0 +1,76 @@
+﻿<Window x:Class="TicTacToe.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicTacToe"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen"
+        Title="Настройки" Height="530" Width="500" Icon="Resources/tic logo.ico" >
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderBrush="DimGray" BorderThickness="0 0.2 0 0.2" Grid.Row="1" Grid.ColumnSpan="2" Margin="10 0 10 0"/>
+        <Border BorderBrush="DimGray" BorderThickness="0 0.2 0 0.2" Grid.Row="3" Grid.ColumnSpan="2" Margin="10 0 10 0"/>
+
+        <TextBlock Name="Log" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+               HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" FontSize="18"  Margin="0 0 0 0"
+        >
+            Использовать случайную генерацию<LineBreak/>"кто ходит первым"
+        </TextBlock>
+
+        <Viewbox Height="25" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0">
+            <CheckBox x:Name="UseRandomGeneration" Grid.Column="1" Click="Sound_Click"/>
+        </Viewbox>
+
+        <TextBlock Name="AI" Grid.Row="1" Grid.Column="1" Text="Использовать Виртуального партнёра(beta)"
+               HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="0 0 0 0"
+        />
+
+        <Viewbox Height="25" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <CheckBox x:Name="UseAI" Grid.Column="1" Click="Sound_Click"/>
+        </Viewbox>
+
+        <TextBlock  Grid.Row="2" Grid.Column="1" TextAlignment="Left"
+               HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="0 0 0 0"
+        >
+            Использовать сохранение данных о сессии<LineBreak/>виде XML
+        </TextBlock>
+
+        <Viewbox Height="25" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <CheckBox x:Name="UseSessionData" Grid.Column="1" Click="Sound_Click"/>
+        </Viewbox>
+
+        <Button x:Name="SessionsWindow" Content="📁" Background="GhostWhite"
+                FontSize="25" VerticalContentAlignment="Top" Grid.Row="2" Margin="380 10 20 10" Grid.Column="1"
+                Click="SessionsWindow_Click"
+        />
+
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Использовать звуки"
+               HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="0 0 0 0"
+        />
+
+        <Viewbox Height="25" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <CheckBox x:Name="UseSoundManager" Grid.Column="1" Click="Sound_Click"/>
+        </Viewbox>
+
+        <Button Content="Сохранить и выйти" Name="SaveAndGoBack" Background="GhostWhite"
+                Margin="5" FontSize="19" Grid.Row="7" Grid.ColumnSpan="2" Click="SaveAndGoBack_Click"
+        />
+    </Grid>
+</Window>
